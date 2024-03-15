@@ -13,13 +13,12 @@ export default function Home() {
     setCategory(category)
   }
   return (
-    <View style={{ flex: 1, marginTop: 130 }}>
+    <View style={{ flex: 1, marginTop: 80 }}>
       <Stack.Screen
         options={{
           header: () => <ExploreHeader onCategoryChange={onCategoryChange} />
         }}
       />
-      {/* <Listings category={category} /> */}
       <ListingsMap />
       <ListingsBottomSheet category={category} />
     </View>

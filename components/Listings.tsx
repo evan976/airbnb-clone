@@ -8,6 +8,7 @@ import { type Listing } from '@/types'
 import { Ionicons, Octicons } from '@expo/vector-icons'
 import Colors from '@/constants/Colors'
 import { currency } from '@/lib/utils'
+import { BottomSheetFlatList, BottomSheetFlatListMethods } from '@gorhom/bottom-sheet'
 
 interface Props {
   category: string
@@ -15,7 +16,7 @@ interface Props {
 }
 
 export default function Listings({ category, refresh }: Props) {
-  const listRef = React.useRef<FlatList>(null)
+  const listRef = React.useRef<BottomSheetFlatListMethods>(null)
   const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
@@ -75,7 +76,7 @@ export default function Listings({ category, refresh }: Props) {
 
   return (
     <View style={defaultStyles.container}>
-      <FlatList<Listing>
+      <BottomSheetFlatList<Listing>
         ref={listRef}
         renderItem={renderItem}
         data={loading ? [] : listings}
